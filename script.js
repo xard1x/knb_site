@@ -1,10 +1,7 @@
-const teser =  require('tesseract.js')
-teser.recognize('C:\Users\karan\Documents\GitHub\knb_site\abc.png','rus',{
-    logger: e=>{
-        console.log(e)
-    }
+Tesseract.recognize(
+    'abc.png',
+    'rus',
+    { logger: m => console.log(m)}
+).then(({ data: { text } }) => {
+    console.log(text)
 })
-    .then(out=>{
-        let text =out.data.text.replace(/\n/g,' ').replace(/[^a-zA-Za-яА-Я0-9]/g,'');
-        console.log('вот что я прочитал :', text);
-    })
